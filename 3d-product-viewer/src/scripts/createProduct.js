@@ -88,14 +88,50 @@ export function createProduct(scene) {
     ).position.set(x, y, z);
   }
 
-  function createFlower(x, y, z) {
-    const flowerGroup = new THREE.Group();
-    const center = new THREE.Mesh(
-      new THREE.SphereGeometry(0.5, 20, 20),
-      new THREE.MeshStandardMaterial({ color: 0x00dd00 })
-    );
-    center.position.set(x, y, z);
-    flowerGroup.add(center);
+  // function createFlower(x, y, z) {
+  //   const flowerGroup = new THREE.Group();
+  //   const center = new THREE.Mesh(
+  //     new THREE.SphereGeometry(0.5, 20, 20),
+  //     new THREE.MeshStandardMaterial({ color: 0x00dd00 })
+  //   );
+  //   center.position.set(x, y, z);
+  //   flowerGroup.add(center);
+
+function createFlower(x, y, z) {
+  const flowerGroup = new THREE.Group();
+  const center = new THREE.Mesh(
+    new THREE.SphereGeometry(0.5, 20, 20),
+    new THREE.MeshStandardMaterial({ color: 0x00dd00 })
+  );
+  center.position.set(x, y, z);
+  flowerGroup.add(center);
+
+  const leafMaterial = new THREE.MeshStandardMaterial({ color: 0x00dd00 });
+  
+  const leaf1 = new THREE.Mesh(new THREE.SphereGeometry(0.5, 20, 20), leafMaterial);
+  leaf1.position.set(x, y + 0.6, z);     // Top
+  
+  const leaf2 = new THREE.Mesh(new THREE.SphereGeometry(0.5, 20, 20), leafMaterial);
+  leaf2.position.set(x, y, z - 0.1);     // Back
+  
+  const leaf3 = new THREE.Mesh(new THREE.SphereGeometry(0.5, 20, 20), leafMaterial);
+  leaf3.position.set(x, y, z + 0.1);     // Front
+  
+  const leaf4 = new THREE.Mesh(new THREE.SphereGeometry(0.5, 20, 20), leafMaterial);
+  leaf4.position.set(x - 0.1, y, z);     // Left side
+
+  flowerGroup.add(leaf1);
+  flowerGroup.add(leaf2);
+  flowerGroup.add(leaf3);
+  flowerGroup.add(leaf4);
+
+  return flowerGroup;
+
+
+
+
+
+
 
     const petalColors = [0xff66cc, 0xff9999, 0xffccff];
     for (let i = 0; i < 6; i++) {
