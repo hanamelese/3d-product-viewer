@@ -92,7 +92,7 @@ export function createProduct(scene) {
     const flowerGroup = new THREE.Group();
     const center = new THREE.Mesh(
       new THREE.SphereGeometry(0.5, 20, 20),
-      new THREE.MeshStandardMaterial({ color: 0xffff00 })
+      new THREE.MeshStandardMaterial({ color: 0x00dd00 })
     );
     center.position.set(x, y, z);
     flowerGroup.add(center);
